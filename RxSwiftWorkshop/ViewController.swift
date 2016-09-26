@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Intrepid
 
 class ViewController: UIViewController {
 
@@ -23,10 +24,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        usernameTextField.rx.textInput.text.bindTo(viewModel.username).addDisposableTo(disposeBag)
-        passwordTextField.rx.textInput.text.bindTo(viewModel.password).addDisposableTo(disposeBag)
+        viewModel.username <- usernameTextField.rx.textInput.text >>> disposeBag
+        viewModel.password <- passwordTextField.rx.textInput.text >>> disposeBag
 
-        viewModel.buttonEnabled.bindTo(button.rx.enabled).addDisposableTo(disposeBag)
+        button.rx.enabled <- viewModel.buttonEnabled >>> disposeBag
     }
 
     @IBAction func buttonTapped(_ sender: AnyObject) {

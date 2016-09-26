@@ -8,6 +8,7 @@ target 'RxSwiftWorkshop' do
   # Pods for RxSwiftWorkshop
   pod 'RxSwift', '~> 3.0.0-beta.1'
   pod 'RxCocoa', '~> 3.0.0-beta.1'
+  pod 'Intrepid/Rx', :git => 'git@github.com:IntrepidPursuits/swift-wisdom.git', :branch => 'ben/swift-3'
 
   target 'RxSwiftWorkshopTests' do
     inherit! :search_paths
