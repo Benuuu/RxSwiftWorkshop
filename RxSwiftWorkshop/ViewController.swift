@@ -21,9 +21,8 @@ class ViewController: UIViewController {
 
     func doRxStuff() {
         let oneToTen = Observable.from([1,2,3,4,5,6,7,8,9,10])
-        let evens = oneToTen.filter { $0 % 2 == 0 }
-        let odds = oneToTen.filter { $0 % 2 != 0 }
-        let observableToPrint = odds
+        let mapped = oneToTen.map { $0 * 10 }.map { "counting to 100 by tens: \($0)" }
+        let observableToPrint = mapped
         observableToPrint.subscribe(onNext: { i in
             print(i)
         }).addDisposableTo(disposeBag)
