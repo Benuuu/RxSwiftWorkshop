@@ -27,14 +27,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45k-P9-Rqf">
+                                <state key="normal" title="Button"/>
+                                <state key="disabled" title="Disabled"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uJv-V9-YLc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="45k-P9-Rqf" firstAttribute="top" secondItem="7mC-GC-sII" secondAttribute="bottom" constant="24" id="2YS-sn-PB1"/>
                             <constraint firstItem="7mC-GC-sII" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8q3-q3-aFB"/>
                             <constraint firstItem="7mC-GC-sII" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Alm-XP-gD0"/>
+                            <constraint firstItem="45k-P9-Rqf" firstAttribute="centerX" secondItem="7mC-GC-sII" secondAttribute="centerX" id="w46-j1-DBo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="45k-P9-Rqf" id="lkr-bT-hEe"/>
                         <outlet property="textField" destination="7mC-GC-sII" id="RFj-7T-MSy"/>
                     </connections>
                 </viewController>
