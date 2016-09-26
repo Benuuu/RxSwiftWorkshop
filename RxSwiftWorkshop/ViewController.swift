@@ -20,7 +20,11 @@ class ViewController: UIViewController {
     }
 
     func doRxStuff() {
-        Observable.from([1,2,3,4,5,6,7,8,9,10]).subscribe(onNext: { i in
+        let oneToTen = Observable.from([1,2,3,4,5,6,7,8,9,10])
+        let evens = oneToTen.filter { $0 % 2 == 0 }
+        let odds = oneToTen.filter { $0 % 2 != 0 }
+        let observableToPrint = odds
+        observableToPrint.subscribe(onNext: { i in
             print(i)
         }).addDisposableTo(disposeBag)
     }
