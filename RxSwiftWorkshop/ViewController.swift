@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        doRxStuff()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func doRxStuff() {
+        Observable.from([1,2,3,4,5,6,7,8,9,10]).subscribe(onNext: { i in
+            print(i)
+        }).addDisposableTo(disposeBag)
     }
-
 
 }
 
