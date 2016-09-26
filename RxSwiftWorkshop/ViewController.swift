@@ -19,8 +19,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textField.rx.textInput.text.subscribe(onNext: { (newText) in
-            print(newText)
+        let textFieldNonEmptyObservable = textField.rx.textInput.text.map { $0.characters.count > 0 }
+        textFieldNonEmptyObservable.subscribe(onNext: { (notEmpty) in
+            print(notEmpty)
             }).addDisposableTo(disposeBag)
     }
 
